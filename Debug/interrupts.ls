@@ -29,10 +29,39 @@
   84  0025 bf00          	ldw	c_x,x
   85  0027 320002        	pop	c_x+2
   86  002a 80            	iret
-  98                     	xdef	f_uartReceive8Interrupt
-  99                     	xref	_uartReceive8
- 100                     	xref	_UART1_ClearITPendingBit
- 101                     	xref	_UART1_ReceiveData8
- 102                     	xref.b	c_x
- 103                     	xref.b	c_y
- 122                     	end
+ 111                     ; 9 INTERRUPT void uartTxCompleteInterrupt(void) {
+ 112                     .text:	section	.text,new
+ 113  0000               f_uartTxCompleteInterrupt:
+ 115  0000 8a            	push	cc
+ 116  0001 84            	pop	a
+ 117  0002 a4bf          	and	a,#191
+ 118  0004 88            	push	a
+ 119  0005 86            	pop	cc
+ 120  0006 3b0002        	push	c_x+2
+ 121  0009 be00          	ldw	x,c_x
+ 122  000b 89            	pushw	x
+ 123  000c 3b0002        	push	c_y+2
+ 124  000f be00          	ldw	x,c_y
+ 125  0011 89            	pushw	x
+ 128                     ; 10 	UART1_ClearITPendingBit(UART1_IT_TC);
+ 130  0012 ae0266        	ldw	x,#614
+ 131  0015 cd0000        	call	_UART1_ClearITPendingBit
+ 133                     ; 11 	uartTxComplete();	
+ 135  0018 cd0000        	call	_uartTxComplete
+ 137                     ; 12 }
+ 140  001b 85            	popw	x
+ 141  001c bf00          	ldw	c_y,x
+ 142  001e 320002        	pop	c_y+2
+ 143  0021 85            	popw	x
+ 144  0022 bf00          	ldw	c_x,x
+ 145  0024 320002        	pop	c_x+2
+ 146  0027 80            	iret
+ 158                     	xdef	f_uartTxCompleteInterrupt
+ 159                     	xdef	f_uartReceive8Interrupt
+ 160                     	xref	_uartReceive8
+ 161                     	xref	_uartTxComplete
+ 162                     	xref	_UART1_ClearITPendingBit
+ 163                     	xref	_UART1_ReceiveData8
+ 164                     	xref.b	c_x
+ 165                     	xref.b	c_y
+ 184                     	end

@@ -67,8 +67,8 @@
  134  0049 00            	dc.b	page(f_NonHandledInterrupt)
  135  004a 0000          	dc.w	f_NonHandledInterrupt
  136  004c 82            	dc.b	130
- 138  004d 00            	dc.b	page(f_NonHandledInterrupt)
- 139  004e 0000          	dc.w	f_NonHandledInterrupt
+ 138  004d 00            	dc.b	page(f_uartTxCompleteInterrupt)
+ 139  004e 0000          	dc.w	f_uartTxCompleteInterrupt
  140  0050 82            	dc.b	130
  142  0051 00            	dc.b	page(f_uartReceive8Interrupt)
  143  0052 0000          	dc.w	f_uartReceive8Interrupt
@@ -108,5 +108,6 @@
  238                     	xdef	__vectab
  239                     	xref	__stext
  240                     	xdef	f_NonHandledInterrupt
- 241                     	xref	f_uartReceive8Interrupt
- 260                     	end
+ 241                     	xref	f_uartTxCompleteInterrupt
+ 242                     	xref	f_uartReceive8Interrupt
+ 261                     	end

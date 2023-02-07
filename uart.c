@@ -1,5 +1,7 @@
 #include "stm8s.h"
 
+char* strPtr;
+
 void uartInit(void) {
 	UART1_DeInit();
 	UART1_Init(	57600,
@@ -18,8 +20,16 @@ void uartTransmit(uint8_t data) {
 }
 
 void uartSendString(char* str) {
-	while (*str) {
-		uartTransmit(*str++);
+	strPtr = str;
+	UART1_ITConfig(UART1_IT_TXE, ENABLE);
+}
+
+void uartTxComplete(void) {
+	if (*strPtr) {
+		UART1_SendData8(*strPtr++);
+	}
+	else {
+		UART1_ITConfig(UART1_IT_TXE, DISABLE);
 	}
 }
 
