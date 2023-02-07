@@ -1,1 +1,3 @@
-@far @interrupt void uartReceive8Interrupt(void);
+#include "stm8s.h"
+
+INTERRUPT_HANDLER_TRAP(uartReceive8Interrupt);

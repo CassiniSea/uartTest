@@ -1,7 +1,7 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.10.2 - 02 Nov 2011
    3                     ; Generator (Limited) V4.3.7 - 29 Nov 2011
-  49                     ; 4 @far @interrupt void uartReceive8Interrupt(void)	{
+  49                     ; 4 INTERRUPT void uartReceive8Interrupt(void)	{
   50                     .text:	section	.text,new
   51  0000               f_uartReceive8Interrupt:
   53  0000 8a            	push	cc
