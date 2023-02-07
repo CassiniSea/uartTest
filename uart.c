@@ -20,6 +20,12 @@ void uartTransmit(uint8_t data) {
 }
 
 void uartSendString(char* str) {
+	while(*str) {
+		uartTransmit(*str++);
+	}
+}
+
+void uartSendStringAsync(char* str) {
 	strPtr = str;
 	UART1_ITConfig(UART1_IT_TXE, ENABLE);
 }

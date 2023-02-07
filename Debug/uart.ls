@@ -50,65 +50,88 @@
  146                     ; 20 }
  149  000f 84            	pop	a
  150  0010 81            	ret
- 187                     ; 22 void uartSendString(char* str) {
- 188                     .text:	section	.text,new
- 189  0000               _uartSendString:
- 193                     ; 23 	strPtr = str;
- 195  0000 bf00          	ldw	_strPtr,x
- 196                     ; 24 	UART1_ITConfig(UART1_IT_TXE, ENABLE);
- 198  0002 4b01          	push	#1
- 199  0004 ae0277        	ldw	x,#631
- 200  0007 cd0000        	call	_UART1_ITConfig
- 202  000a 84            	pop	a
- 203                     ; 25 }
- 206  000b 81            	ret
- 232                     ; 27 void uartTxComplete(void) {
- 233                     .text:	section	.text,new
- 234  0000               _uartTxComplete:
- 238                     ; 28 	if (*strPtr) {
- 240  0000 923d00        	tnz	[_strPtr.w]
- 241  0003 2710          	jreq	L37
- 242                     ; 29 		UART1_SendData8(*strPtr++);
- 244  0005 be00          	ldw	x,_strPtr
- 245  0007 1c0001        	addw	x,#1
- 246  000a bf00          	ldw	_strPtr,x
- 247  000c 1d0001        	subw	x,#1
- 248  000f f6            	ld	a,(x)
- 249  0010 cd0000        	call	_UART1_SendData8
- 252  0013 2009          	jra	L57
- 253  0015               L37:
- 254                     ; 32 		UART1_ITConfig(UART1_IT_TXE, DISABLE);
- 256  0015 4b00          	push	#0
- 257  0017 ae0277        	ldw	x,#631
- 258  001a cd0000        	call	_UART1_ITConfig
- 260  001d 84            	pop	a
- 261  001e               L57:
- 262                     ; 34 }
- 265  001e 81            	ret
- 300                     ; 36 void uartReceive8(uint8_t data) {
- 301                     .text:	section	.text,new
- 302  0000               _uartReceive8:
- 306                     ; 37 	uartSendString("Hello World\n");
- 308  0000 ae0000        	ldw	x,#L511
- 309  0003 cd0000        	call	_uartSendString
- 311                     ; 38 }
- 314  0006 81            	ret
- 339                     	xdef	_uartReceive8
- 340                     	xdef	_uartTxComplete
- 341                     	xdef	_uartSendString
- 342                     	xdef	_uartTransmit
- 343                     	xdef	_uartInit
- 344                     	switch	.ubsct
- 345  0000               _strPtr:
- 346  0000 0000          	ds.b	2
- 347                     	xdef	_strPtr
- 348                     	xref	_UART1_GetFlagStatus
- 349                     	xref	_UART1_SendData8
- 350                     	xref	_UART1_ITConfig
- 351                     	xref	_UART1_Cmd
- 352                     	xref	_UART1_Init
- 353                     	xref	_UART1_DeInit
- 354                     .const:	section	.text
- 355  0000               L511:
- 356  0000 48656c6c6f20  	dc.b	"Hello World",10,0
- 376                     	end
+ 186                     ; 22 void uartSendString(char* str) {
+ 187                     .text:	section	.text,new
+ 188  0000               _uartSendString:
+ 190  0000 89            	pushw	x
+ 191       00000000      OFST:	set	0
+ 194  0001 200e          	jra	L56
+ 195  0003               L36:
+ 196                     ; 24 		uartTransmit(*str++);
+ 198  0003 1e01          	ldw	x,(OFST+1,sp)
+ 199  0005 1c0001        	addw	x,#1
+ 200  0008 1f01          	ldw	(OFST+1,sp),x
+ 201  000a 1d0001        	subw	x,#1
+ 202  000d f6            	ld	a,(x)
+ 203  000e cd0000        	call	_uartTransmit
+ 205  0011               L56:
+ 206                     ; 23 	while(*str) {
+ 208  0011 1e01          	ldw	x,(OFST+1,sp)
+ 209  0013 7d            	tnz	(x)
+ 210  0014 26ed          	jrne	L36
+ 211                     ; 26 }
+ 214  0016 85            	popw	x
+ 215  0017 81            	ret
+ 253                     ; 28 void uartSendStringAsync(char* str) {
+ 254                     .text:	section	.text,new
+ 255  0000               _uartSendStringAsync:
+ 259                     ; 29 	strPtr = str;
+ 261  0000 bf00          	ldw	_strPtr,x
+ 262                     ; 30 	UART1_ITConfig(UART1_IT_TXE, ENABLE);
+ 264  0002 4b01          	push	#1
+ 265  0004 ae0277        	ldw	x,#631
+ 266  0007 cd0000        	call	_UART1_ITConfig
+ 268  000a 84            	pop	a
+ 269                     ; 31 }
+ 272  000b 81            	ret
+ 298                     ; 33 void uartTxComplete(void) {
+ 299                     .text:	section	.text,new
+ 300  0000               _uartTxComplete:
+ 304                     ; 34 	if (*strPtr) {
+ 306  0000 923d00        	tnz	[_strPtr.w]
+ 307  0003 2710          	jreq	L711
+ 308                     ; 35 		UART1_SendData8(*strPtr++);
+ 310  0005 be00          	ldw	x,_strPtr
+ 311  0007 1c0001        	addw	x,#1
+ 312  000a bf00          	ldw	_strPtr,x
+ 313  000c 1d0001        	subw	x,#1
+ 314  000f f6            	ld	a,(x)
+ 315  0010 cd0000        	call	_UART1_SendData8
+ 318  0013 2009          	jra	L121
+ 319  0015               L711:
+ 320                     ; 38 		UART1_ITConfig(UART1_IT_TXE, DISABLE);
+ 322  0015 4b00          	push	#0
+ 323  0017 ae0277        	ldw	x,#631
+ 324  001a cd0000        	call	_UART1_ITConfig
+ 326  001d 84            	pop	a
+ 327  001e               L121:
+ 328                     ; 40 }
+ 331  001e 81            	ret
+ 366                     ; 42 void uartReceive8(uint8_t data) {
+ 367                     .text:	section	.text,new
+ 368  0000               _uartReceive8:
+ 372                     ; 43 	uartSendString("Hello World\n");
+ 374  0000 ae0000        	ldw	x,#L141
+ 375  0003 cd0000        	call	_uartSendString
+ 377                     ; 44 }
+ 380  0006 81            	ret
+ 405                     	xdef	_uartReceive8
+ 406                     	xdef	_uartTxComplete
+ 407                     	xdef	_uartSendStringAsync
+ 408                     	xdef	_uartSendString
+ 409                     	xdef	_uartTransmit
+ 410                     	xdef	_uartInit
+ 411                     	switch	.ubsct
+ 412  0000               _strPtr:
+ 413  0000 0000          	ds.b	2
+ 414                     	xdef	_strPtr
+ 415                     	xref	_UART1_GetFlagStatus
+ 416                     	xref	_UART1_SendData8
+ 417                     	xref	_UART1_ITConfig
+ 418                     	xref	_UART1_Cmd
+ 419                     	xref	_UART1_Init
+ 420                     	xref	_UART1_DeInit
+ 421                     .const:	section	.text
+ 422  0000               L141:
+ 423  0000 48656c6c6f20  	dc.b	"Hello World",10,0
+ 443                     	end
