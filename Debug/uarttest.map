@@ -1,5 +1,5 @@
 
-Map of Debug\uarttest.sm8 from link file Debug\uarttest.lkf - Tue Feb 07 19:34:45 2023
+Map of Debug\uarttest.sm8 from link file Debug\uarttest.lkf - Tue Feb 07 19:45:40 2023
 
 
                                --------
@@ -7,7 +7,7 @@ Map of Debug\uarttest.sm8 from link file Debug\uarttest.lkf - Tue Feb 07 19:34:4
                                --------
 
 start 00008080 end 00008090 length    16 segment .const
-start 00008099 end 0000866f length  1494 segment .text
+start 00008099 end 00008677 length  1502 segment .text
 start 00004000 end 00004000 length     0 segment .eeprom
 start 00000000 end 00000001 length     1 segment .bsct, initialized
 start 00008098 end 00008099 length     1 segment .bsct, from
@@ -17,7 +17,7 @@ start 0000002d end 0000002d length     0 segment .share
 start 00000100 end 00000100 length     0 segment .data
 start 00000100 end 00000100 length     0 segment .bss
 start 00000000 end 000006d7 length  1751 segment .info.
-start 00000000 end 00003226 length 12838 segment .debug
+start 00000000 end 0000322a length 12842 segment .debug
 start 00008000 end 00008080 length   128 segment .const
 start 00008090 end 00008098 length     8 segment .init
 
@@ -114,7 +114,7 @@ start 00008411 end 00008416 length     5 section .text
 Debug\uart.o:
 start 00000000 end 00000001 length     1 section .bsct
 start 00000001 end 00000023 length    34 section .ubsct
-start 00002d75 end 000030bb length   838 section .debug
+start 00002d75 end 000030bf length   842 section .debug
 start 0000032f end 000003ac length   125 section .info.
 start 00008416 end 0000843f length    41 section .text
 start 0000843f end 00008450 length    17 section .text
@@ -122,10 +122,10 @@ start 00008450 end 00008468 length    24 section .text
 start ******** end ******** length     0 section .text *** removed ***
 start 00008468 end 00008487 length    31 section .text
 start 00008487 end 0000848b length     4 section .text
-start 0000848b end 000084ae length    35 section .text
+start 0000848b end 000084b6 length    43 section .text
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)llsh.o:
-start 000084ae end 000084bd length    15 section .text
+start 000084b6 end 000084c5 length    15 section .text
 start 000003ac end 000003db length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lreg.o:
@@ -133,39 +133,39 @@ start 00000023 end 00000027 length     4 section .ubsct
 start 000003db end 0000040a length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lsub.o:
-start 000084bd end 000084d5 length    24 section .text
+start 000084c5 end 000084dd length    24 section .text
 start 0000040a end 00000439 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ltor.o:
-start 000084d5 end 000084e7 length    18 section .text
+start 000084dd end 000084ef length    18 section .text
 start 00000439 end 00000468 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o:
-start 000084e7 end 000084fb length    20 section .text
+start 000084ef end 00008503 length    20 section .text
 start 00000468 end 00000498 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o:
-start 000084fb end 000085e6 length   235 section .text
+start 00008503 end 000085ee length   235 section .text
 start 00000498 end 000004c7 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lgneg.o:
-start 000085e6 end 000085f9 length    19 section .text
+start 000085ee end 00008601 length    19 section .text
 start 000004c7 end 000004f7 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lneg.o:
-start 000085f9 end 0000860e length    21 section .text
+start 00008601 end 00008616 length    21 section .text
 start 000004f7 end 00000526 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lursh.o:
-start 0000860e end 0000861d length    15 section .text
+start 00008616 end 00008625 length    15 section .text
 start 00000526 end 00000556 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)rtol.o:
-start 0000861d end 0000862f length    18 section .text
+start 00008625 end 00008637 length    18 section .text
 start 00000556 end 00000585 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)smul.o:
-start 0000862f end 0000866e length    63 section .text
+start 00008637 end 00008676 length    63 section .text
 start 00000585 end 000005b4 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)xreg.o:
@@ -177,9 +177,9 @@ start 0000002a end 0000002d length     3 section .ubsct
 start 000005e3 end 00000612 length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
-start 000030bb end 00003226 length   363 section .debug
+start 000030bf end 0000322a length   363 section .debug
 start 00000612 end 000006a0 length   142 section .info.
-start 0000866e end 0000866f length     1 section .text
+start 00008676 end 00008677 length     1 section .text
 start 00008000 end 00008080 length   128 section .const
 
 
@@ -315,7 +315,7 @@ Stack size: 83
 
 ___uartBufferIndex               00000000   defined in Debug\uart.o section .bsct, initialized
 ___uartBuffer                    00000001   defined in Debug\uart.o section .ubsct
-___strPtr                        00000021   defined in Debug\uart.o section .ubsct
+___uartStrPtr                    00000021   defined in Debug\uart.o section .ubsct
 c_lreg                           00000023   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lreg.o section .ubsct
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
@@ -430,29 +430,29 @@ _uartTxComplete                  00008468   defined in Debug\uart.o section .tex
 _uartStringReceived              00008487   defined in Debug\uart.o section .text
 _uartReceive8                    0000848b   defined in Debug\uart.o section .text
                                             used in Debug\interrupts.o
-c_llsh                           000084ae   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)llsh.o section .text
+c_llsh                           000084b6   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)llsh.o section .text
                                             used in Debug\stm8s_uart1.o
-c_lsub                           000084bd   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lsub.o section .text
+c_lsub                           000084c5   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lsub.o section .text
                                             used in Debug\stm8s_uart1.o
-c_ltor                           000084d5   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ltor.o section .text
+c_ltor                           000084dd   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ltor.o section .text
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
-c_ludv                           000084e7   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o section .text
+c_ludv                           000084ef   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o section .text
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
-c_divsl                          000084fb   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
+c_divsl                          00008503   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
                                             *** not used ***
-c_divul                          00008512   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
+c_divul                          0000851a   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
                                             used in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o
-c_lgneg                          000085e6   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lgneg.o section .text
+c_lgneg                          000085ee   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lgneg.o section .text
                                             used in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o
-c_lneg                           000085f9   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lneg.o section .text
+c_lneg                           00008601   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lneg.o section .text
                                             used in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o
-c_lursh                          0000860e   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lursh.o section .text
+c_lursh                          00008616   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lursh.o section .text
                                             used in Debug\stm8s_uart1.o
-c_rtol                           0000861d   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)rtol.o section .text
+c_rtol                           00008625   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)rtol.o section .text
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
-c_smul                           0000862f   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)smul.o section .text
+c_smul                           00008637   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)smul.o section .text
                                             used in Debug\stm8s_uart1.o
-f_NonHandledInterrupt            0000866e   defined in Debug\stm8_interrupt_vector.o section .text
+f_NonHandledInterrupt            00008676   defined in Debug\stm8_interrupt_vector.o section .text

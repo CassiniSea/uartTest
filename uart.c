@@ -2,7 +2,7 @@
 
 #define __UART_MAX_STRING_LENGTH 32
 
-char* __strPtr;
+char* __uartStrPtr;
 char __uartBuffer[__UART_MAX_STRING_LENGTH];
 uint8_t __uartBufferIndex = 0;
 
@@ -30,13 +30,13 @@ void uartSendString(char* str) {
 }
 
 void uartSendStringAsync(char* str) {
-	__strPtr = str;
+	__uartStrPtr = str;
 	UART1_ITConfig(UART1_IT_TXE, ENABLE);
 }
 
 void uartTxComplete(void) {
-	if (*__strPtr) {
-		UART1_SendData8(*__strPtr++);
+	if (*__uartStrPtr) {
+		UART1_SendData8(*__uartStrPtr++);
 	}
 	else {
 		UART1_ITConfig(UART1_IT_TXE, DISABLE);
@@ -49,6 +49,7 @@ void uartStringReceived(char* str) {
 
 void uartReceive8(uint8_t c) {
 	if(c == '\r' || __uartBufferIndex >= __UART_MAX_STRING_LENGTH) {
+		__uartBuffer[__uartBufferIndex] = '\r';
 		uartStringReceived(__uartBuffer);
 		__uartBufferIndex = 0;
 	}

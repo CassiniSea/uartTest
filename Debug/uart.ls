@@ -78,8 +78,8 @@
  256                     ; 32 void uartSendStringAsync(char* str) {
  257                     .text:	section	.text,new
  258  0000               _uartSendStringAsync:
- 262                     ; 33 	__strPtr = str;
- 264  0000 bf20          	ldw	___strPtr,x
+ 262                     ; 33 	__uartStrPtr = str;
+ 264  0000 bf20          	ldw	___uartStrPtr,x
  265                     ; 34 	UART1_ITConfig(UART1_IT_TXE, ENABLE);
  267  0002 4b01          	push	#1
  268  0004 ae0277        	ldw	x,#631
@@ -90,13 +90,13 @@
  301                     ; 37 void uartTxComplete(void) {
  302                     .text:	section	.text,new
  303  0000               _uartTxComplete:
- 307                     ; 38 	if (*__strPtr) {
- 309  0000 923d20        	tnz	[___strPtr.w]
+ 307                     ; 38 	if (*__uartStrPtr) {
+ 309  0000 923d20        	tnz	[___uartStrPtr.w]
  310  0003 2710          	jreq	L711
- 311                     ; 39 		UART1_SendData8(*__strPtr++);
- 313  0005 be20          	ldw	x,___strPtr
+ 311                     ; 39 		UART1_SendData8(*__uartStrPtr++);
+ 313  0005 be20          	ldw	x,___uartStrPtr
  314  0007 1c0001        	addw	x,#1
- 315  000a bf20          	ldw	___strPtr,x
+ 315  000a bf20          	ldw	___uartStrPtr,x
  316  000c 1d0001        	subw	x,#1
  317  000f f6            	ld	a,(x)
  318  0010 cd0000        	call	_UART1_SendData8
@@ -127,47 +127,53 @@
  431  0003 2706          	jreq	L161
  433  0005 b600          	ld	a,___uartBufferIndex
  434  0007 a120          	cp	a,#32
- 435  0009 250a          	jrult	L751
+ 435  0009 2512          	jrult	L751
  436  000b               L161:
- 437                     ; 52 		uartStringReceived(__uartBuffer);
- 439  000b ae0000        	ldw	x,#___uartBuffer
- 440  000e cd0000        	call	_uartStringReceived
- 442                     ; 53 		__uartBufferIndex = 0;
- 444  0011 3f00          	clr	___uartBufferIndex
- 446  0013               L361:
- 447                     ; 58 }
- 450  0013 84            	pop	a
- 451  0014 81            	ret
- 452  0015               L751:
- 453                     ; 56 		__uartBuffer[__uartBufferIndex++] = c;
- 455  0015 b600          	ld	a,___uartBufferIndex
- 456  0017 97            	ld	xl,a
- 457  0018 3c00          	inc	___uartBufferIndex
- 458  001a 9f            	ld	a,xl
- 459  001b 5f            	clrw	x
- 460  001c 97            	ld	xl,a
- 461  001d 7b01          	ld	a,(OFST+1,sp)
- 462  001f e700          	ld	(___uartBuffer,x),a
- 463  0021 20f0          	jra	L361
- 507                     	xdef	_uartReceive8
- 508                     	xdef	_uartStringReceived
- 509                     	xdef	_uartTxComplete
- 510                     	xdef	_uartSendStringAsync
- 511                     	xdef	_uartSendString
- 512                     	xdef	_uartTransmit
- 513                     	xdef	_uartInit
- 514                     	xdef	___uartBufferIndex
- 515                     	switch	.ubsct
- 516  0000               ___uartBuffer:
- 517  0000 000000000000  	ds.b	32
- 518                     	xdef	___uartBuffer
- 519  0020               ___strPtr:
- 520  0020 0000          	ds.b	2
- 521                     	xdef	___strPtr
- 522                     	xref	_UART1_GetFlagStatus
- 523                     	xref	_UART1_SendData8
- 524                     	xref	_UART1_ITConfig
- 525                     	xref	_UART1_Cmd
- 526                     	xref	_UART1_Init
- 527                     	xref	_UART1_DeInit
- 547                     	end
+ 437                     ; 52 		__uartBuffer[__uartBufferIndex] = '\r';
+ 439  000b b600          	ld	a,___uartBufferIndex
+ 440  000d 5f            	clrw	x
+ 441  000e 97            	ld	xl,a
+ 442  000f a60d          	ld	a,#13
+ 443  0011 e700          	ld	(___uartBuffer,x),a
+ 444                     ; 53 		uartStringReceived(__uartBuffer);
+ 446  0013 ae0000        	ldw	x,#___uartBuffer
+ 447  0016 cd0000        	call	_uartStringReceived
+ 449                     ; 54 		__uartBufferIndex = 0;
+ 451  0019 3f00          	clr	___uartBufferIndex
+ 453  001b               L361:
+ 454                     ; 59 }
+ 457  001b 84            	pop	a
+ 458  001c 81            	ret
+ 459  001d               L751:
+ 460                     ; 57 		__uartBuffer[__uartBufferIndex++] = c;
+ 462  001d b600          	ld	a,___uartBufferIndex
+ 463  001f 97            	ld	xl,a
+ 464  0020 3c00          	inc	___uartBufferIndex
+ 465  0022 9f            	ld	a,xl
+ 466  0023 5f            	clrw	x
+ 467  0024 97            	ld	xl,a
+ 468  0025 7b01          	ld	a,(OFST+1,sp)
+ 469  0027 e700          	ld	(___uartBuffer,x),a
+ 470  0029 20f0          	jra	L361
+ 514                     	xdef	_uartReceive8
+ 515                     	xdef	_uartStringReceived
+ 516                     	xdef	_uartTxComplete
+ 517                     	xdef	_uartSendStringAsync
+ 518                     	xdef	_uartSendString
+ 519                     	xdef	_uartTransmit
+ 520                     	xdef	_uartInit
+ 521                     	xdef	___uartBufferIndex
+ 522                     	switch	.ubsct
+ 523  0000               ___uartBuffer:
+ 524  0000 000000000000  	ds.b	32
+ 525                     	xdef	___uartBuffer
+ 526  0020               ___uartStrPtr:
+ 527  0020 0000          	ds.b	2
+ 528                     	xdef	___uartStrPtr
+ 529                     	xref	_UART1_GetFlagStatus
+ 530                     	xref	_UART1_SendData8
+ 531                     	xref	_UART1_ITConfig
+ 532                     	xref	_UART1_Cmd
+ 533                     	xref	_UART1_Init
+ 534                     	xref	_UART1_DeInit
+ 554                     	end
