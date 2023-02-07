@@ -1,0 +1,1 @@
+@far @interrupt void uartReceive8Interrupt(void);
