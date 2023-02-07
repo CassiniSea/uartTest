@@ -1,13 +1,13 @@
 
-Map of Debug\uarttest.sm8 from link file Debug\uarttest.lkf - Tue Feb 07 17:55:59 2023
+Map of Debug\uarttest.sm8 from link file Debug\uarttest.lkf - Tue Feb 07 18:09:49 2023
 
 
                                --------
                                Segments
                                --------
 
-start 00008080 end 00008090 length    16 segment .const
-start 00008093 end 000085e7 length  1364 segment .text
+start 00008080 end 0000809d length    29 segment .const
+start 000080a0 end 0000860f length  1391 segment .text
 start 00004000 end 00004000 length     0 segment .eeprom
 start 00000000 end 00000000 length     0 segment .bsct
 start 00000000 end 0000000a length    10 segment .ubsct
@@ -16,9 +16,9 @@ start 0000000a end 0000000a length     0 segment .share
 start 00000100 end 00000100 length     0 segment .data
 start 00000100 end 00000100 length     0 segment .bss
 start 00000000 end 000006d7 length  1751 segment .info.
-start 00000000 end 00003001 length 12289 segment .debug
+start 00000000 end 00003062 length 12386 segment .debug
 start 00008000 end 00008080 length   128 segment .const
-start 00008090 end 00008093 length     3 segment .init
+start 0000809d end 000080a0 length     3 segment .init
 
 
                                -------
@@ -26,7 +26,7 @@ start 00008090 end 00008093 length     3 segment .init
                                -------
 
 C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8:
-start 00008093 end 000080de length    75 section .text
+start 000080a0 end 000080eb length    75 section .text
 start 00000100 end 00000100 length     0 section .bss
 start 00000000 end 00000000 length     0 section .ubsct
 start 00000000 end 00000030 length    48 section .info.
@@ -45,14 +45,14 @@ start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
-start 000080de end 000080f1 length    19 section .text
+start 000080eb end 000080fe length    19 section .text
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
-start 000080f1 end 00008165 length   116 section .text
+start 000080fe end 00008172 length   116 section .text
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
@@ -62,11 +62,11 @@ start ******** end ******** length     0 section .text *** removed ***
 Debug\stm8s_uart1.o:
 start 0000166f end 00002a5b length  5100 section .debug
 start 000000b2 end 00000136 length   132 section .info.
-start 00008165 end 00008190 length    43 section .text
+start 00008172 end 0000819d length    43 section .text
 start 0000808c end 00008090 length     4 section .const
-start 00008190 end 000082d0 length   320 section .text
-start 000082d0 end 000082de length    14 section .text
-start 000082de end 0000834f length   113 section .text
+start 0000819d end 000082dd length   320 section .text
+start 000082dd end 000082eb length    14 section .text
+start 000082eb end 0000835c length   113 section .text
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
@@ -76,48 +76,50 @@ start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
-start 0000834f end 00008353 length     4 section .text
+start 0000835c end 00008360 length     4 section .text
 start ******** end ******** length     0 section .text *** removed ***
-start 00008353 end 00008357 length     4 section .text
-start ******** end ******** length     0 section .text *** removed ***
-start ******** end ******** length     0 section .text *** removed ***
+start 00008360 end 00008364 length     4 section .text
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
-start 00008357 end 0000839a length    67 section .text
 start ******** end ******** length     0 section .text *** removed ***
 start ******** end ******** length     0 section .text *** removed ***
-start 0000839a end 000083aa length    16 section .text
+start 00008364 end 000083a7 length    67 section .text
+start ******** end ******** length     0 section .text *** removed ***
+start ******** end ******** length     0 section .text *** removed ***
+start 000083a7 end 000083b7 length    16 section .text
 
 Debug\clk.o:
 start 00002a5b end 00002b0b length   176 section .debug
 start 00000136 end 000001b2 length   124 section .info.
-start 000083aa end 000083b0 length     6 section .text
+start 000083b7 end 000083bd length     6 section .text
 
 Debug\init.o:
 start 00002b0b end 00002bb9 length   174 section .debug
 start 000001b2 end 0000022f length   125 section .info.
-start 000083b0 end 000083b8 length     8 section .text
+start 000083bd end 000083c5 length     8 section .text
 
 Debug\interrupts.o:
 start 00002bb9 end 00002c7e length   197 section .debug
 start 0000022f end 000002b2 length   131 section .info.
-start 000083b8 end 000083e3 length    43 section .text
+start 000083c5 end 000083f0 length    43 section .text
 
 Debug\main.o:
 start 00002c7e end 00002d2c length   174 section .debug
 start 000002b2 end 0000032f length   125 section .info.
-start 000083e3 end 000083e8 length     5 section .text
+start 000083f0 end 000083f5 length     5 section .text
 
 Debug\uart.o:
-start 00002d2c end 00002e96 length   362 section .debug
+start 00002d2c end 00002ef7 length   459 section .debug
 start 0000032f end 000003ac length   125 section .info.
-start 000083e8 end 00008411 length    41 section .text
-start 00008411 end 00008422 length    17 section .text
-start 00008422 end 00008426 length     4 section .text
+start 000083f5 end 0000841e length    41 section .text
+start 0000841e end 0000842f length    17 section .text
+start 0000842f end 00008447 length    24 section .text
+start 00008447 end 0000844e length     7 section .text
+start 00008090 end 0000809d length    13 section .const
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)llsh.o:
-start 00008426 end 00008435 length    15 section .text
+start 0000844e end 0000845d length    15 section .text
 start 000003ac end 000003db length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lreg.o:
@@ -125,39 +127,39 @@ start 00000000 end 00000004 length     4 section .ubsct
 start 000003db end 0000040a length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lsub.o:
-start 00008435 end 0000844d length    24 section .text
+start 0000845d end 00008475 length    24 section .text
 start 0000040a end 00000439 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ltor.o:
-start 0000844d end 0000845f length    18 section .text
+start 00008475 end 00008487 length    18 section .text
 start 00000439 end 00000468 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o:
-start 0000845f end 00008473 length    20 section .text
+start 00008487 end 0000849b length    20 section .text
 start 00000468 end 00000498 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o:
-start 00008473 end 0000855e length   235 section .text
+start 0000849b end 00008586 length   235 section .text
 start 00000498 end 000004c7 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lgneg.o:
-start 0000855e end 00008571 length    19 section .text
+start 00008586 end 00008599 length    19 section .text
 start 000004c7 end 000004f7 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lneg.o:
-start 00008571 end 00008586 length    21 section .text
+start 00008599 end 000085ae length    21 section .text
 start 000004f7 end 00000526 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lursh.o:
-start 00008586 end 00008595 length    15 section .text
+start 000085ae end 000085bd length    15 section .text
 start 00000526 end 00000556 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)rtol.o:
-start 00008595 end 000085a7 length    18 section .text
+start 000085bd end 000085cf length    18 section .text
 start 00000556 end 00000585 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)smul.o:
-start 000085a7 end 000085e6 length    63 section .text
+start 000085cf end 0000860e length    63 section .text
 start 00000585 end 000005b4 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)xreg.o:
@@ -169,9 +171,9 @@ start 00000007 end 0000000a length     3 section .ubsct
 start 000005e3 end 00000612 length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
-start 00002e96 end 00003001 length   363 section .debug
+start 00002ef7 end 00003062 length   363 section .debug
 start 00000612 end 000006a0 length   142 section .info.
-start 000085e6 end 000085e7 length     1 section .text
+start 0000860e end 0000860f length     1 section .text
 start 00008000 end 00008080 length   128 section .const
 
 
@@ -186,7 +188,7 @@ Debug\init.o:
 _init                         52   (2)
 
 Debug\interrupts.o:
-f_uartReceive8Interrupt   >   22   (12)
+f_uartReceive8Interrupt   >   26   (12)
 
 Debug\main.o:
 _main                     >   54   (2)
@@ -210,10 +212,11 @@ _UART1_SendData8               2   (2)
 
 Debug\uart.o:
 _uartInit                     50   (2)
-_uartReceive8                 10   (2)
+_uartReceive8                 14   (2)
+_uartSendString               12   (4)
 _uartTransmit                  8   (3)
 
-Stack size: 76
+Stack size: 80
 
 
                               ---------
@@ -242,41 +245,45 @@ Stack size: 76
   14      + _UART1_ClearITPendingBit: (2)
   15      + _UART1_ReceiveData8: (2)
   16      + _uartReceive8: (2)
-  17      |    + _uartTransmit: (3)
-  18      |    |    + _UART1_GetFlagStatus: (5)
-  19      |    |    + _UART1_SendData8: (2)
+  17      |    + _uartSendString: (4)
+  18      |    |    + _uartTransmit: (3)
+  19      |    |    |    + _UART1_GetFlagStatus: (5)
+  20      |    |    |    + _UART1_SendData8: (2)
+          |    |    | 
           |    | 
           | 
        
-  20   _CLK_GetClockFreq --> 11
+  21   _CLK_GetClockFreq --> 11
 
-  21   _CLK_HSIPrescalerConfig --> 5
+  22   _CLK_HSIPrescalerConfig --> 5
 
-  22   _UART1_ClearITPendingBit --> 14
+  23   _UART1_ClearITPendingBit --> 14
 
-  23   _UART1_Cmd --> 7
+  24   _UART1_Cmd --> 7
 
-  24   _UART1_DeInit --> 8
+  25   _UART1_DeInit --> 8
 
-  25   _UART1_GetFlagStatus --> 18
+  26   _UART1_GetFlagStatus --> 19
 
-  26   _UART1_ITConfig --> 9
+  27   _UART1_ITConfig --> 9
 
-  27   _UART1_Init --> 10
+  28   _UART1_Init --> 10
 
-  28   _UART1_ReceiveData8 --> 15
+  29   _UART1_ReceiveData8 --> 15
 
-  29   _UART1_SendData8 --> 19
+  30   _UART1_SendData8 --> 20
 
-  30   _clkInit --> 4
+  31   _clkInit --> 4
 
-  31   _init --> 3
+  32   _init --> 3
 
-  32   _uartInit --> 6
+  33   _uartInit --> 6
 
-  33   _uartReceive8 --> 16
+  34   _uartReceive8 --> 16
 
-  34   _uartTransmit --> 17
+  35   _uartSendString --> 17
+
+  36   _uartTransmit --> 18
 
 
 
@@ -315,11 +322,11 @@ __stack                          000003ff   defined in command file
 __vectab                         00008000   defined in Debug\stm8_interrupt_vector.o section .const
 _HSIDivFactor                    00008080   defined in Debug\stm8s_clk.o section .const
 _CLKPrescTable                   00008084   defined in Debug\stm8s_clk.o section .const
-__idesc__                        00008090   defined in linker section .init
+__idesc__                        0000809d   defined in linker section .init
                                             used in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8
-__stext                          00008093   defined in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8 section .text
+__stext                          000080a0   defined in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8 section .text
                                             used in Debug\stm8_interrupt_vector.o
-_exit                            000080dc   defined in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8 section .text
+_exit                            000080e9   defined in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8 section .text
 _CLK_DeInit                      ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_FastHaltWakeUpCmd           ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_HSECmd                      ********   *** removed from Debug\stm8s_clk.o ***
@@ -330,10 +337,10 @@ _CLK_ClockSwitchCmd              ********   *** removed from Debug\stm8s_clk.o *
 _CLK_SlowActiveHaltWakeUpCmd     ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_PeripheralClockConfig       ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_ClockSwitchConfig           ********   *** removed from Debug\stm8s_clk.o ***
-_CLK_HSIPrescalerConfig          000080de   defined in Debug\stm8s_clk.o section .text
+_CLK_HSIPrescalerConfig          000080eb   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clk.o
 _CLK_ClockSecuritySystemEnable   ********   *** removed from Debug\stm8s_clk.o ***
-_CLK_GetClockFreq                000080f1   defined in Debug\stm8s_clk.o section .text
+_CLK_GetClockFreq                000080fe   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\stm8s_uart1.o
 _CLK_CCOConfig                   ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_ITConfig                    ********   *** removed from Debug\stm8s_clk.o ***
@@ -341,17 +348,17 @@ _CLK_SYSCLKConfig                ********   *** removed from Debug\stm8s_clk.o *
 _CLK_SWIMConfig                  ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_GetSYSCLKSource             ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_ClearITPendingBit           ********   *** removed from Debug\stm8s_clk.o ***
-_UART1_DeInit                    00008165   defined in Debug\stm8s_uart1.o section .text
+_UART1_DeInit                    00008172   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\uart.o
 _CLK_GetFlagStatus               ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_GetITStatus                 ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_AdjustHSICalibrationValue   ********   *** removed from Debug\stm8s_clk.o ***
 _CLK_SYSCLKEmergencyClear        ********   *** removed from Debug\stm8s_clk.o ***
-_UART1_Init                      00008190   defined in Debug\stm8s_uart1.o section .text
+_UART1_Init                      0000819d   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\uart.o
-_UART1_Cmd                       000082d0   defined in Debug\stm8s_uart1.o section .text
+_UART1_Cmd                       000082dd   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\uart.o
-_UART1_ITConfig                  000082de   defined in Debug\stm8s_uart1.o section .text
+_UART1_ITConfig                  000082eb   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\uart.o
 _UART1_HalfDuplexCmd             ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_IrDACmd                   ********   *** removed from Debug\stm8s_uart1.o ***
@@ -362,58 +369,59 @@ _UART1_ReceiverWakeUpCmd         ********   *** removed from Debug\stm8s_uart1.o
 _UART1_IrDAConfig                ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_LINBreakDetectionConfig   ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_WakeUpConfig              ********   *** removed from Debug\stm8s_uart1.o ***
-_UART1_ReceiveData8              0000834f   defined in Debug\stm8s_uart1.o section .text
+_UART1_ReceiveData8              0000835c   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\interrupts.o
 _UART1_ReceiveData9              ********   *** removed from Debug\stm8s_uart1.o ***
-_UART1_SendData8                 00008353   defined in Debug\stm8s_uart1.o section .text
+_UART1_SendData8                 00008360   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\uart.o
 _UART1_SendData9                 ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_SetPrescaler              ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_SendBreak                 ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_SetAddress                ********   *** removed from Debug\stm8s_uart1.o ***
-_UART1_GetFlagStatus             00008357   defined in Debug\stm8s_uart1.o section .text
+_UART1_GetFlagStatus             00008364   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\uart.o
 _UART1_SetGuardTime              ********   *** removed from Debug\stm8s_uart1.o ***
 _UART1_ClearFlag                 ********   *** removed from Debug\stm8s_uart1.o ***
-_UART1_ClearITPendingBit         0000839a   defined in Debug\stm8s_uart1.o section .text
+_UART1_ClearITPendingBit         000083a7   defined in Debug\stm8s_uart1.o section .text
                                             used in Debug\interrupts.o
 _UART1_GetITStatus               ********   *** removed from Debug\stm8s_uart1.o ***
-_clkInit                         000083aa   defined in Debug\clk.o section .text
+_clkInit                         000083b7   defined in Debug\clk.o section .text
                                             used in Debug\init.o
-_init                            000083b0   defined in Debug\init.o section .text
+_init                            000083bd   defined in Debug\init.o section .text
                                             used in Debug\main.o
-f_uartReceive8Interrupt          000083b8   defined in Debug\interrupts.o section .text
+f_uartReceive8Interrupt          000083c5   defined in Debug\interrupts.o section .text
                                             used in Debug\stm8_interrupt_vector.o
-_main                            000083e3   defined in Debug\main.o section .text
+_main                            000083f0   defined in Debug\main.o section .text
                                             used in C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\crtsi0.sm8
-_uartInit                        000083e8   defined in Debug\uart.o section .text
+_uartInit                        000083f5   defined in Debug\uart.o section .text
                                             used in Debug\init.o
-_uartTransmit                    00008411   defined in Debug\uart.o section .text
-_uartReceive8                    00008422   defined in Debug\uart.o section .text
+_uartTransmit                    0000841e   defined in Debug\uart.o section .text
+_uartSendString                  0000842f   defined in Debug\uart.o section .text
+_uartReceive8                    00008447   defined in Debug\uart.o section .text
                                             used in Debug\interrupts.o
-c_llsh                           00008426   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)llsh.o section .text
+c_llsh                           0000844e   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)llsh.o section .text
                                             used in Debug\stm8s_uart1.o
-c_lsub                           00008435   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lsub.o section .text
+c_lsub                           0000845d   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lsub.o section .text
                                             used in Debug\stm8s_uart1.o
-c_ltor                           0000844d   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ltor.o section .text
+c_ltor                           00008475   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ltor.o section .text
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
-c_ludv                           0000845f   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o section .text
+c_ludv                           00008487   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o section .text
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
-c_divsl                          00008473   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
+c_divsl                          0000849b   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
                                             *** not used ***
-c_divul                          0000848a   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
+c_divul                          000084b2   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o section .text
                                             used in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ludiv.o
-c_lgneg                          0000855e   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lgneg.o section .text
+c_lgneg                          00008586   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lgneg.o section .text
                                             used in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o
-c_lneg                           00008571   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lneg.o section .text
+c_lneg                           00008599   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lneg.o section .text
                                             used in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)ldiv.o
-c_lursh                          00008586   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lursh.o section .text
+c_lursh                          000085ae   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)lursh.o section .text
                                             used in Debug\stm8s_uart1.o
-c_rtol                           00008595   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)rtol.o section .text
+c_rtol                           000085bd   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)rtol.o section .text
                                             used in Debug\stm8s_clk.o
                                                     Debug\stm8s_uart1.o
-c_smul                           000085a7   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)smul.o section .text
+c_smul                           000085cf   defined in (C:\Program Files (x86)\COSMIC\CXSTM8_EVAL\Lib\libm0.sm8)smul.o section .text
                                             used in Debug\stm8s_uart1.o
-f_NonHandledInterrupt            000085e6   defined in Debug\stm8_interrupt_vector.o section .text
+f_NonHandledInterrupt            0000860e   defined in Debug\stm8_interrupt_vector.o section .text

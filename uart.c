@@ -17,6 +17,12 @@ void uartTransmit(uint8_t data) {
 	UART1_SendData8(data);
 }
 
+void uartSendString(char* str) {
+	while (*str) {
+		uartTransmit(*str++);
+	}
+}
+
 void uartReceive8(uint8_t data) {
-	uartTransmit(data);
+	uartSendString("Hello World\n");
 }
