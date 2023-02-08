@@ -49,9 +49,9 @@ void uartStringReceived(char* str) {
 
 void uartReceive8(uint8_t c) {
 	if(c == '\r' || __uartBufferIndex >= __UART_MAX_STRING_LENGTH) {
-		__uartBuffer[__uartBufferIndex] = '\r';
-		uartStringReceived(__uartBuffer);
+		__uartBuffer[__uartBufferIndex] = c;
 		__uartBufferIndex = 0;
+		uartStringReceived(__uartBuffer);
 	}
 	else {
 		__uartBuffer[__uartBufferIndex++] = c;
