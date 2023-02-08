@@ -42,7 +42,7 @@ struct interrupt_vector const _vectab[] = {
 	{0x82, NonHandledInterrupt}, /* irq15 */
 	{0x82, NonHandledInterrupt}, /* irq16 */
 	{0x82, uartTxCompleteInterrupt}, /* irq17 */
-	{0x82, uartReceive8Interrupt}, /* irq18 */
+	{0x82, UART_RECEIVE8_INTERRUPT_VECTOR}, /* irq18 */
 	{0x82, NonHandledInterrupt}, /* irq19 */
 	{0x82, NonHandledInterrupt}, /* irq20 */
 	{0x82, NonHandledInterrupt}, /* irq21 */
