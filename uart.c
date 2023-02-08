@@ -1,11 +1,12 @@
 #include "stm8s.h"
 #include "uart.h"
 
-#define __UART_MAX_STRING_LENGTH 32
-
 char* __uartStrPtr;
-char __uartBuffer[__UART_MAX_STRING_LENGTH];
+
+#ifdef UART_RECEIVE_STRINGS_ENABLE
+char __uartBuffer[UART_MAX_STRING_LENGTH];
 uint8_t __uartBufferIndex = 0;
+#endif
 
 void uartInit(void) {
 	UART1_DeInit();
@@ -15,7 +16,9 @@ void uartInit(void) {
 							UART1_PARITY_NO,
 							UART1_SYNCMODE_CLOCK_DISABLE,
 							UART1_MODE_TXRX_ENABLE);
-	UART1_ITConfig(	UART1_IT_RXNE, ENABLE);
+	#if defined(UART_RECEIVE_STRINGS_ENABLE) || defined(UART_RECEIVE_BYTE_ENABLE)
+		UART1_ITConfig(	UART1_IT_RXNE, ENABLE);
+	#endif
 	UART1_Cmd(ENABLE);
 }
 
@@ -44,11 +47,9 @@ void uartTxComplete(void) {
 	}
 }
 
-//void uartStringReceived(char* str) {
-//}
-
+#ifdef UART_RECEIVE_STRINGS_ENABLE
 void uartReceive8(uint8_t c) {
-	if(c == '\r' || __uartBufferIndex >= __UART_MAX_STRING_LENGTH) {
+	if(c == '\r' || __uartBufferIndex >= UART_MAX_STRING_LENGTH) {
 		__uartBuffer[__uartBufferIndex] = c;
 		__uartBufferIndex = 0;
 		uartStringReceived(__uartBuffer);
@@ -57,4 +58,5 @@ void uartReceive8(uint8_t c) {
 		__uartBuffer[__uartBufferIndex++] = c;
 	}
 }
+#endif
 

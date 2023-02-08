@@ -1,4 +1,7 @@
 #include "stm8s.h"
+#include "uart.h"
 
-INTERRUPT_HANDLER_TRAP(uartReceive8Interrupt);
+#if defined(UART_RECEIVE_STRINGS_ENABLE) || defined(UART_RECEIVE_BYTE_ENABLE)
+	INTERRUPT_HANDLER_TRAP(UART_RECEIVE8_INTERRUPT_VECTOR);
+#endif
 INTERRUPT_HANDLER_TRAP(uartTxCompleteInterrupt);
