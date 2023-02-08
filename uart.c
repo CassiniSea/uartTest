@@ -1,4 +1,5 @@
 #include "stm8s.h"
+#include "uart.h"
 
 #define __UART_MAX_STRING_LENGTH 32
 
@@ -43,9 +44,8 @@ void uartTxComplete(void) {
 	}
 }
 
-void uartStringReceived(char* str) {
-	uartSendString(str);
-}
+//void uartStringReceived(char* str) {
+//}
 
 void uartReceive8(uint8_t c) {
 	if(c == '\r' || __uartBufferIndex >= __UART_MAX_STRING_LENGTH) {
