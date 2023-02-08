@@ -47,7 +47,7 @@ void uartTxComplete(void) {
 	}
 }
 
-#ifdef UART_RECEIVE_STRINGS_ENABLE
+#ifdef UART_RECEIVE_STRING_ENABLE
 void uartReceive8(uint8_t c) {
 	if(c == '\r' || __uartBufferIndex >= UART_MAX_STRING_LENGTH) {
 		__uartBuffer[__uartBufferIndex] = c;
