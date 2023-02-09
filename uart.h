@@ -1,6 +1,7 @@
 /*
-To start using
 Open stm8_interrupt_vector.c and add
+#include "uart.h"
+and
 UART_TX_COMPLATE_INTERRUPT_VECTOR to irq17
 UART_RECEIVE8_INTERRUPT_VECTOR to irq18
 
@@ -22,7 +23,7 @@ define a void uartReceiveByte(uint8_t byte) function
 
 WARNING: You can only use one option, not both.
 */
-//#define UART_RECEIVE_STRING_ENABLE
+#define UART_RECEIVE_STRING_ENABLE
 #define UART_MAX_STRING_LENGTH 32
 //#define UART_RECEIVE_BYTE_ENABLE
 
@@ -34,6 +35,7 @@ use uartSendStringAsync(char* str) function
 //#define UART_SEND_STRING_ASYNC_ENABLE
 
 // =================================================
+#include "stm8s.h"
 
 #ifdef UART_RECEIVE_BYTE_ENABLE
 	#undef UART_RECEIVE_STRING_ENABLE
@@ -54,6 +56,14 @@ use uartSendStringAsync(char* str) function
 #ifdef UART_SEND_STRING_ENABLE
 	#undef UART_SEND_STRING_ASYNC_ENABLE
 #endif 
+
+#if defined(UART_RECEIVE_STRING_ENABLE) || defined(UART_RECEIVE_BYTE_ENABLE)
+	INTERRUPT_HANDLER_TRAP(UART_RECEIVE8_INTERRUPT_VECTOR);
+#endif
+
+#if defined(UART_SEND_STRING_ASYNC_ENABLE)
+	INTERRUPT_HANDLER_TRAP(UART_TX_COMPLATE_INTERRUPT_VECTOR);
+#endif
 
 void uartInit(void);
 void uartSendByte(uint8_t);

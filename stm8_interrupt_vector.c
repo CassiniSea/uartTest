@@ -2,7 +2,7 @@
  *	Copyright (c) 2007 STMicroelectronics
  */
 
-#include "interrupts.h"
+#include "uart.h"
 
 typedef void @far (*interrupt_handler_t)(void);
 
