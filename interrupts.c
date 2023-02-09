@@ -8,7 +8,9 @@
 	}
 #endif
 
-INTERRUPT void uartTxCompleteInterrupt(void) {
-	UART1_ClearITPendingBit(UART1_IT_TC);
-	uartTxComplete();	
-}
+#if defined(UART_SEND_STRING_ASYNC_ENABLE)
+	INTERRUPT void UART_TX_COMPLATE_INTERRUPT_VECTOR(void) {
+		UART1_ClearITPendingBit(UART1_IT_TC);
+		uartTxComplete();	
+	}
+#endif

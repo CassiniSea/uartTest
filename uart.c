@@ -1,7 +1,9 @@
 #include "stm8s.h"
 #include "uart.h"
 
+#ifdef UART_SEND_STRING_ASYNC_ENABLE
 char* __uartStrPtr;
+#endif
 
 #ifdef UART_RECEIVE_STRING_ENABLE
 char __uartBuffer[UART_MAX_STRING_LENGTH];
@@ -33,6 +35,7 @@ void uartSendString(char* str) {
 	}
 }
 
+#ifdef UART_SEND_STRING_ASYNC_ENABLE
 void uartSendStringAsync(char* str) {
 	__uartStrPtr = str;
 	UART1_ITConfig(UART1_IT_TXE, ENABLE);
@@ -46,6 +49,7 @@ void uartTxComplete(void) {
 		UART1_ITConfig(UART1_IT_TXE, DISABLE);
 	}
 }
+#endif
 
 #ifdef UART_RECEIVE_STRING_ENABLE
 void uartReceive8(uint8_t c) {
