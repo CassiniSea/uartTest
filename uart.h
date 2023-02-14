@@ -72,3 +72,4 @@ void uartSendStringAsync(char*);
 void uartTxComplete(void);
 void uartStringReceived(char*);
 void uartReceiveByte(uint8_t);
+uint8_t stringToNum(char*);
