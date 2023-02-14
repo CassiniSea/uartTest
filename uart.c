@@ -33,6 +33,19 @@ void uartSendString(char* str) {
 	while(*str) {
 		uartSendByte(*str++);
 	}
+	uartSendByte(0x0D);
+}
+
+uint8_t stringToNum(const char *str) {
+  uint8_t num = 0;
+  while (*str != '\0') {
+		if (*str < '0' || *str > '9') {
+			return 0;
+		}
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+  return num;
 }
 
 #ifdef UART_SEND_STRING_ASYNC_ENABLE
@@ -54,7 +67,7 @@ void uartTxComplete(void) {
 #ifdef UART_RECEIVE_STRING_ENABLE
 void uartReceiveByte(uint8_t byte) {
 	if(byte == '\r' || __uartBufferIndex >= UART_MAX_STRING_LENGTH) {
-		__uartBuffer[__uartBufferIndex] = byte;
+		__uartBuffer[__uartBufferIndex] = '\0';
 		__uartBufferIndex = 0;
 		uartStringReceived(__uartBuffer);
 	}
